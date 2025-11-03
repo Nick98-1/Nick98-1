@@ -49,10 +49,15 @@ Event-driven notifications through Kafka
 🖥️ Virtual Machines & Volumes
 
 1️⃣ VM A – Hosts Transactional Database
+
 2️⃣ VM B – Hosts Analytics Database
+
 3️⃣ VM C – Hosts AI / LLM Services with mounted storage for NLP processing
+
 4️⃣ VM D – Hosts Index / Search Database (optimized for queries across forums, users, and posts)
+
 5️⃣ VM E – Hosts Kafka Notification Service
+
 6️⃣ VM F – Hosts Front-end React application
 
 Volumes are mounted per VM to provide:
@@ -171,8 +176,11 @@ Front-end VM interacts with all service APIs while maintaining separation of con
 5️⃣ Deployment & Scalability
 
 1️⃣ Containerized Services with environment variables per VM for repeatable deployments
+
 2️⃣ Load Balancers ensure high availability and balanced request distribution
+
 3️⃣ Isolation by VM and volume allows independent scaling of transactional, analytics, AI, and notification layers
+
 4️⃣ Architecture designed to allow future expansion: messaging DBs, additional AI modules, advanced analytics, etc.
 
 
@@ -181,9 +189,13 @@ Front-end VM interacts with all service APIs while maintaining separation of con
 6️⃣ Product-Architecture Integration
 
 1️⃣ Modular services allow cross-service communication while maintaining independence
+
 2️⃣ Analytics dashboards aggregate from multiple sources (transactional + AI)
+
 3️⃣ AI summarizes forum content using indexed data
+
 4️⃣ Notifications triggered by events across services, processed asynchronously
+
 5️⃣ Ensures infrastructure directly supports product goals without creating technical bottlenecks
 
 
