@@ -5,7 +5,7 @@
 
 Hi, I’m Nicholas!
 
-I’m a technical founder and architect. This page details my work on Governa Cloud, highlighting both the product reasoning and the technical architecture that underpins the platform.
+I’m a technical founder and architect. This page details my work on Governa Cloud, highlighting both the product reasoning and the technical architecture that underpins the platform. I am looking to collaborate on projects with cloud and backend infrastructure. This project below gives you a great case study of some if the things I have worked on before and willing to expand and learn on! 
 
 
 ---
