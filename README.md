@@ -19,7 +19,9 @@ I’m a technical founder and architect. This page details my work on Governa Cl
 Community discussions (Reddit-style)
 
 Professional networking (LinkedIn-style)
+
 2️⃣ Designed for large-scale professional engagement, allowing researchers, policy makers, and regulators to collaborate and share insights.
+
 3️⃣ Core platform features:
 
 Forum discussions with threaded posts, moderation, and tagging
@@ -33,7 +35,9 @@ AI-powered insights and summarizations
 Analytics dashboards for monitoring engagement and activity
 
 Event-driven notifications through Kafka
+
 4️⃣ High-concurrency design allows support for millions of users while maintaining responsiveness and reliability.
+
 5️⃣ Architecture follows separation of concerns, ensuring modularity and maintainability across all features.
 
 
