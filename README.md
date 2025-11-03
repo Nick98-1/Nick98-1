@@ -1,232 +1,125 @@
-
----
-
 👋 About Me
-
-Hi, I’m Nicholas!
-
-I’m a technical founder and architect. This page details my work on Governa Cloud, highlighting both the product reasoning and the technical architecture that underpins the platform. I am looking to collaborate on projects with cloud and backend infrastructure. This project below gives you a great case study of some if the things I have worked on before and willing to expand and learn on! 
-
-
----
+Hi, I’m Nicolas!
+I’m a technical founder and architect. This page details my work on Governa Cloud, highlighting both the product reasoning and the technical architecture that underpins the platform.
 
 📝 Biography
-
 1️⃣ Product & Platform Vision
-
 1️⃣ Governa Cloud is a policy collaboration platform, combining:
-
 Community discussions (Reddit-style)
-
 Professional networking (LinkedIn-style)
 
-2️⃣ Designed for large-scale professional engagement, allowing researchers, policy makers, and regulators to collaborate and share insights.
-
-3️⃣ Core platform features:
-
+ 2️⃣ Designed for large-scale professional engagement, allowing researchers, policy makers, and regulators to collaborate and share insights.
+ 3️⃣ Core platform features:
 Forum discussions with threaded posts, moderation, and tagging
-
 User profiles with dynamic credentials, education, publications, and interests
-
 Real-time and asynchronous chat
-
 AI-powered insights and summarizations
-
 Analytics dashboards for monitoring engagement and activity
-
 Event-driven notifications through Kafka
-
-4️⃣ High-concurrency design allows support for millions of users while maintaining responsiveness and reliability.
-
-5️⃣ Architecture follows separation of concerns, ensuring modularity and maintainability across all features.
-
-
-
----
+ 4️⃣ High-concurrency design allows support for millions of users while maintaining responsiveness and reliability.
+ 5️⃣ Architecture follows separation of concerns, ensuring modularity and maintainability across all features.
 
 2️⃣ Technical Architecture & Layering
-
 🖥️ Virtual Machines & Volumes
+Each VM is dedicated to a specific service or database, with mounted volumes providing persistent storage and isolation.
+1️⃣ VM A – Transactional Database
+Hosts PostgreSQL storing core entities: users, profiles, posts, forum threads
+Supports ACID transactions to ensure data integrity
+Service → Controller → Router → Front-end API calls directly interact with this VM
+2️⃣ VM B – Analytics Database
+Stores aggregated metrics and user engagement logs
+Populated via ETL processes from transactional DB or directly via service calls
+AnalyticsService queries this DB and exposes metrics to dashboards
+3️⃣ VM C – AI / LLM Services
+Hosts a large language model for text summarization, tagging, and content analysis
+AI service reads from Index/Search DB and optionally from transactional DB
+Outputs are served via API endpoints for front-end consumption
+4️⃣ VM D – Index / Search Database
+Contains optimized indices for posts, forums, and user content
+Provides sub-second search performance for front-end queries
+Supports AI summarization and analytics pipelines
+5️⃣ VM E – Kafka Notification Service
+Event-driven, decouples messaging from transactional processes
+Subscribes to events like new posts, profile updates, or AI-generated insights
+Ensures real-time notifications without blocking main transactional flows
+6️⃣ VM F – Front-end React Application
+Hosts UI components: forum dashboard, profile pages, post forms, analytics dashboard
+Communicates with APIs through service wrappers, abstracting backend complexity
 
-1️⃣ VM A – Hosts Transactional Database
-
-2️⃣ VM B – Hosts Analytics Database
-
-3️⃣ VM C – Hosts AI / LLM Services with mounted storage for NLP processing
-
-4️⃣ VM D – Hosts Index / Search Database (optimized for queries across forums, users, and posts)
-
-5️⃣ VM E – Hosts Kafka Notification Service
-
-6️⃣ VM F – Hosts Front-end React application
-
-Volumes are mounted per VM to provide:
-
-Isolation and security
-
-Persistent storage
-
-Independent scaling
-
-
-
----
-
-📦 Service Layer
-
-Each core feature has a dedicated service, exposing well-defined CRUD and business logic functions.
-
-Examples:
-
-UsersService: manages accounts, login, and profile references
-
-ProfileService: handles detailed profile CRUD and updates
-
-ForumService: manages posts, threads, and forum metadata
-
-AnalyticsService: aggregates user and platform metrics
-
-AIService: handles summarization, insights, and NLP tasks
-
-NotificationService: pushes messages and events via Kafka
+3️⃣ Services, Controllers & Routers
+Services implement business logic, controllers handle HTTP interaction, routers map endpoints.
+Transactional Flow Example:
 
 
+Front-end sends POST /posts with post data
+PostsController validates input, calls PostsService.create()
+PostsService inserts record into Transactional DB
+Event emitted to Kafka → NotificationService triggers alerts
+AnalyticsService consumes events → updates engagement metrics
+Profile Update Flow:
 
 
----
-
-🗂️ Controllers & Routing
-
-Controllers implement API endpoints for each service, handling validation, error management, and response formatting.
-
-Routers map HTTP methods to controller functions, e.g.,
-
-POST /users → create user
-
-GET /users/:email → retrieve user by email
-
-PUT /profile/:id → update profile data
+Front-end PUT /profile/:id sends updated profile object
+ProfileController validates and forwards to ProfileService.update()
+Service updates Transactional DB
+Updates optionally propagate to Analytics DB or Index/Search DB for reporting or AI indexing
+AI Query Flow:
 
 
-API Wrappers ensure that the front-end communicates with services seamlessly.
+Front-end requests summarized content (GET /ai/summary?forumId=xyz)
+AIController fetches raw posts via Index/Search DB
+LLM service processes content, generates output
+Response returned to front-end and optionally cached for efficiency
 
-
-
----
-
-3️⃣ Databases & Storage
-
-1️⃣ Transactional Database (PostgreSQL):
-
-Stores users, profiles, forum posts, and activity logs
-
-Supports high-speed CRUD and relational consistency
-
-
+4️⃣ Databases & Storage Interaction
+1️⃣ Transactional Database:
+Stores core entities
+Interacts directly with services for CRUD operations
+Sends events to Kafka for asynchronous processing
 2️⃣ Analytics Database:
-
-Aggregates metrics, engagement, and activity data
-
-Supports dashboards and reports
-
-
-3️⃣ Index / Search Database:
-
-Optimized for fast search and retrieval across posts, forums, and users
-
-Powers AI summarization queries
-
-
+Populated by services consuming transactional data or events
+Supports dashboard queries and metrics aggregation
+3️⃣ Index/Search Database:
+Built from transactional and analytics data
+Optimized for search and AI query performance
 4️⃣ AI / LLM Storage:
-
-Dedicated mounted volume storing model weights and embeddings
-
-Handles natural language summarization and insight extraction
-
-
+Reads indexed data from Search DB
+Processes text, generates summaries, predictions, or insights
+Outputs available via AI API endpoints
 5️⃣ Kafka Notification Service:
+Consumes events from transactional or AI services
+Sends asynchronous notifications (emails, in-app alerts, logs)
 
-Event-driven notification system
+5️⃣ Front-end Interaction
+Front-end components are modular and self-contained:
+Example: PostForm manages its own state, sends data to API
+Dashboard components can pull analytics without affecting other modules
+State lifting is only used when multiple components must share data
+Service wrappers ensure a clean API abstraction layer
 
-Handles real-time alerts without blocking transactional operations
+6️⃣ Deployment & Scalability
+Each service and database is containerized with its own environment variables
+Load balancers route incoming traffic to multiple front-end instances or service replicas
+VM/volume isolation ensures independent scaling and fault tolerance
+Designed to support millions of users without blocking operations
 
+7️⃣ Product-Architecture Integration
+1️⃣ Cross-service communication ensures:
+AI insights are available on dashboards and forums
+Analytics metrics are updated asynchronously
+Notifications are real-time but decoupled
+ 2️⃣ Modular services allow iterative updates without downtime
+ 3️⃣ Infrastructure supports product goals: collaboration, AI insights, analytics, notifications
 
-
----
-
-4️⃣ Front-end Architecture
-
-Built with React, fully modularized:
-
-Components encapsulate functionality and internal state (e.g., PostForm, ForumDashboard)
-
-State lifting is used only when multiple components need to share data
-
-API calls are routed via service-specific wrappers, keeping UI logic separate from backend concerns
-
-
-CSS modules and inline styling provide scoped and maintainable styles
-
-Front-end VM interacts with all service APIs while maintaining separation of concerns
-
-
-
----
-
-5️⃣ Deployment & Scalability
-
-1️⃣ Containerized Services with environment variables per VM for repeatable deployments
-
-2️⃣ Load Balancers ensure high availability and balanced request distribution
-
-3️⃣ Isolation by VM and volume allows independent scaling of transactional, analytics, AI, and notification layers
-
-4️⃣ Architecture designed to allow future expansion: messaging DBs, additional AI modules, advanced analytics, etc.
-
-
----
-
-6️⃣ Product-Architecture Integration
-
-1️⃣ Modular services allow cross-service communication while maintaining independence
-
-2️⃣ Analytics dashboards aggregate from multiple sources (transactional + AI)
-
-3️⃣ AI summarizes forum content using indexed data
-
-4️⃣ Notifications triggered by events across services, processed asynchronously
-
-5️⃣ Ensures infrastructure directly supports product goals without creating technical bottlenecks
-
-
----
-
-7️⃣ Tech Stack Highlights
-
+8️⃣ Tech Stack Highlights
 Back-end: Node.js, Express, PostgreSQL, Kafka
-
 Front-end: React, modular components, API wrappers
-
-AI / NLP: LLM on dedicated VM, mounted storage, query API
-
+AI / NLP: LLM, mounted storage, search-index integration
 Databases: Transactional, Analytics, Index/Search
-
 Deployment: Multi-VM, volumes, load balancers, containerized microservices
 
-
-
----
-
-8️⃣ Key Principles
-
-Scalability: supports millions of concurrent users
-
-Modularity: services and components are decoupled
-
-Maintainability: easy testing, debugging, and extensions
-
-Extensibility: new features added without disrupting existing services
-
-Product-driven architecture: ensures infrastructure decisions support platform goals
-
-
+9️⃣ Key Principles
+Separation of concerns: ensures modularity
+Scalability: supports high concurrency
+Extensibility: new features without impacting existing services
+Product-driven design: infrastructure decisions directly support platform functionality
