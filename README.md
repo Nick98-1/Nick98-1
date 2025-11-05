@@ -164,7 +164,7 @@
 
 <h2>🧩 Technical Stack Overview</h2>
 
-<p>Below is a structured overview of the core languages, frameworks, and technologies I’ve used across each major system layer — from front-end UI through back-end orchestration, databases, and cloud infrastructure.</p>
+Below is a structured overview of the core languages, frameworks, and technologies I’ve used across each major system layer — from front-end UI through back-end orchestration, databases, and cloud infrastructure.
 
 <table>
   <thead>
@@ -177,81 +177,43 @@
   <tbody>
     <tr>
       <td><b>Front-End</b></td>
-      <td>
-        React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, TailwindCSS, Bootstrap  
-      </td>
-      <td>
-        Client-facing interface for Governa Cloud. Modular component structure with state management via Context API; API consumption via Axios; hosted on an independent VM and volume.
-      </td>
+      <td>React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, TailwindCSS, Bootstrap</td>
+      <td>Client-facing interface for Governa Cloud. Modular component structure with state management via Context API; API consumption via Axios; hosted on an independent VM and volume.</td>
     </tr>
-
     <tr>
       <td><b>Back-End</b></td>
-      <td>
-        Node.js, Express.js, RESTful APIs, WebSockets, Python (data utilities), JWT, Kafka
-      </td>
-      <td>
-        Handles routing, logic, authentication, and message streaming. Built with a service–controller–router pattern and microservice modules for Transactional, AI, Messaging, and Analytics services.
-      </td>
+      <td>Node.js, Express.js, RESTful APIs, WebSockets, Python (data utilities), JWT, Kafka</td>
+      <td>Handles routing, logic, authentication, and message streaming. Built with a service–controller–router pattern and microservice modules for Transactional, AI, Messaging, and Analytics services.</td>
     </tr>
-
     <tr>
       <td><b>Database Layer</b></td>
-      <td>
-        PostgreSQL (open-source), Redis, MongoDB (NoSQL), Firestore (NoSQL), Oracle MySQL (managed), SQLAlchemy (Python ORM)
-      </td>
-      <td>
-        Multi-DB structure: transactional SQL for data integrity, NoSQL for messaging and analytics caching, Redis for in-memory caching, and Firestore for scalable, schema-less operations.
-      </td>
+      <td>PostgreSQL (open-source), Redis, MongoDB (NoSQL), Firestore (NoSQL), Oracle MySQL (managed), SQLAlchemy (Python ORM)</td>
+      <td>Multi-DB structure: transactional SQL for data integrity, NoSQL for messaging and analytics caching, Redis for in-memory caching, and Firestore for scalable, schema-less operations.</td>
     </tr>
-
     <tr>
       <td><b>AI / Data Processing</b></td>
-      <td>
-        Granite AI (open-source LLM), LangChain, Python NLP libraries, RAG pipeline, Embeddings, TensorFlow (lightweight)
-      </td>
-      <td>
-        Integrated open-source LLMs for contextual understanding and summarization. Uses embedding databases for semantic indexing and conversational retrieval.
-      </td>
+      <td>Granite AI (open-source LLM), LangChain, Python NLP libraries, RAG pipeline, Embeddings, TensorFlow (lightweight)</td>
+      <td>Integrated open-source LLMs for contextual understanding and summarization. Uses embedding databases for semantic indexing and conversational retrieval.</td>
     </tr>
-
     <tr>
       <td><b>Cloud Infrastructure</b></td>
-      <td>
-        Oracle Cloud (VMs & Volumes), OCI CLI, Nginx, Docker, Kubernetes (basics), CI/CD pipelines, GCP Firestore, AWS S3
-      </td>
-      <td>
-        Self-managed VM + volume hosting setup. Each service containerized and isolated for scalability. Internal subnets for secure inter-service communication and database access.
-      </td>
+      <td>Oracle Cloud (VMs & Volumes), OCI CLI, Nginx, Docker, Kubernetes (basics), CI/CD pipelines, GCP Firestore, AWS S3</td>
+      <td>Self-managed VM + volume hosting setup. Each service containerized and isolated for scalability. Internal subnets for secure inter-service communication and database access.</td>
     </tr>
-
     <tr>
       <td><b>APIs & Integration</b></td>
-      <td>
-        REST, WebSocket, GraphQL (conceptual), Stripe API, OpenAI API, OAuth2.0, Web3.js (ERC-20 / 721)
-      </td>
-      <td>
-        Unified data exchange layer for both user traffic and backend communication. Focus on modular endpoints and secure token-based session management.
-      </td>
+      <td>REST, WebSocket, GraphQL (conceptual), Stripe API, OpenAI API, OAuth2.0, Web3.js (ERC-20 / 721)</td>
+      <td>Unified data exchange layer for both user traffic and backend communication. Focus on modular endpoints and secure token-based session management.</td>
     </tr>
-
     <tr>
       <td><b>Development & Collaboration</b></td>
-      <td>
-        Git, GitHub, Jira, Confluence, Postman, VSCode, Agile / Scrum
-      </td>
-      <td>
-        Full-cycle development collaboration with version control, API testing, and agile sprint planning for product milestones.
-      </td>
+      <td>Git, GitHub, Jira, Confluence, Postman, VSCode, Agile / Scrum</td>
+      <td>Full-cycle development collaboration with version control, API testing, and agile sprint planning for product milestones.</td>
     </tr>
   </tbody>
 </table>
 
----
-
 <h3>📊 Summary by Category</h3>
-
-
 
 <table>
   <thead>
