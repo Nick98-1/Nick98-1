@@ -164,7 +164,7 @@
 
 <h2>🧩 Technical Stack Overview</h2>
 
-Below is a structured overview of the core languages, frameworks, and technologies I’ve used across each major system layer — from front-end UI through back-end orchestration, databases, and cloud infrastructure.
+Below is a structured overview of the core languages, frameworks, and technologies I’ve used and know across each major system layer — from front-end UI through back-end orchestration, databases, and cloud infrastructure.
 
 <table>
   <thead>
