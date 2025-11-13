@@ -8,7 +8,7 @@
 
 <h1>👋 About Me</h1>
 <p>Hi, I’m Nicolas!</p>
-<p>I’m a technical founder and architect. This page details my work on <strong>Governa Cloud</strong>, highlighting the product reasoning, platform design, and technical architecture behind the system.</p>
+<p>I’m a technical founder and architect. This page details my work on <strong>Governa Cloud</strong>, highlighting the product reasoning, platform design, and technical architecture behind the system.Poli Cloud is a global policy collaboration platform enabling policy actors to collaborate and develop policy across a range of sectors.</p>
 
 <h2>🏗️ Three-Layer Platform Architecture</h2>
 <p>The platform is designed as a clear three-layer structure:</p>
