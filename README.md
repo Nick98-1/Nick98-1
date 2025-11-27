@@ -1,255 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Governa Cloud - Technical README</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI/ML Engineer | Full Stack Architect</title>
+    
+  <style>
+        /* Define colors and fonts */
+        :root {
+            --primary-color: #0077B5; /* LinkedIn Blue */
+            --secondary-color: #1E3A8A; /* Dark Blue for emphasis */
+            --background-color: #F9FAFB; /* Gray 50 */
+            --text-color: #374151; /* Gray 700 */
+        }
+
+        /* Basic container and font setup */
+        body {
+            font-family: 'Inter', sans-serif; /* Assuming Inter or a fallback is available */
+            background-color: var(--background-color);
+            padding: 1rem; /* p-4 */
+        }
+        
+        /* Main content card structure */
+        .bio-container {
+            max-width: 800px; /* max-w-3xl */
+            margin: 0 auto; /* mx-auto */
+            background-color: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* shadow-2xl */
+            border-radius: 1rem; /* rounded-2xl */
+            padding: 2.5rem; /* p-10 (used larger value for desktop consistency) */
+            border: 1px solid #E5E7EB; /* border-gray-100 */
+        }
+        
+        /* Responsive padding adjustments */
+        @media (min-width: 640px) { /* sm breakpoint */
+            body {
+                padding: 2rem; /* sm:p-8 */
+            }
+            .bio-container {
+                padding: 2rem; /* sm:p-8 */
+            }
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #1F2937; /* gray-800 */
+            margin-bottom: 1rem;
+        }
+
+        .intro-paragraph {
+            font-size: 1.125rem; /* text-lg */
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .intro-paragraph span {
+            font-size: 1.5rem; /* text-2xl */
+            margin-right: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-content {
+            margin-bottom: 2rem;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 1.5rem;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .list-icon {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+        
+        .list-content strong {
+            font-weight: 500;
+        }
+
+        .list-inside li {
+            margin-left: 1rem;
+            list-style-type: disc;
+            margin-bottom: 0.75rem;
+        }
+
+        .italic-note {
+            font-size: 0.875rem; /* text-sm */
+            color: #6B7280; /* gray-500 */
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) { /* md breakpoint */
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .full-width-skill {
+                grid-column: span 2 / span 2;
+            }
+        }
+
+        .skill-box {
+            background-color: #EFF6FF; /* blue-50 */
+            padding: 0.75rem; /* p-3 */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+        }
+
+        .skill-box strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .skill-box span {
+            font-size: 0.875rem; /* text-sm */
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 p-4 sm:p-8">
+    
+  <div class="bio-container">
+<!-- HEADER / INTRO -->
+       <h1 class="text-3xl font-bold text-gray-800 mb-4">
+            AI/ML Engineer | Deep Learning & Data Pipelines
+        </h1>
+        <p class="intro-paragraph">
+            <span>👋</span> I am an **AI/ML Engineer and Full Stack Architect** currently driving development for a stealth startup focused on building data-intensive, cloud-native applications.
+        </p>
 
-<h1>👋 About Me</h1>
-<p>Hi Bonjour, I’m Nicholas!</p>
-<p>I’m a technical founder and architect. This page details my work on <strong>Governa Cloud</strong>, highlighting the product reasoning, platform design, and technical architecture behind the system. Poli Cloud is a global policy collaboration platform enabling policy actors to collaborate and develop policy across a range of sectors.</p>
+ <!-- ML FOCUS SECTION -->
+<div class="section-content">
+            <h2 class="text-xl font-semibold text-secondary mb-4">
+                Primary Focus: Machine Learning Pipeline 🧠
+            </h2>
+            <p style="color: #4B5563; margin-bottom: 1rem;">
+                My primary focus is on the machine learning pipeline, specializing in Natural Language Processing (NLP) and integrating large language models (LLMs). This includes hands-on experience with:
+            </p>
+<ul style="list-style: none; padding: 0;">
+        <li class="list-item">
+                    <span class="list-icon">🔧</span>
+                    <div class="list-content">
+                        <strong style="color: #374151;">Model Adapters (LoRA):</strong> Implementing LoRA (Low-Rank Adaptation) and other parameter-efficient techniques to fine-tune Transformer models.
+                    </div>
+                </li>
+                <li class="list-item">
+                    <span class="list-icon">⚛️</span>
+                    <div class="list-content">
+                        <strong style="color: #374151;">Vector Embeddings:</strong> Generating and managing high-dimensional Context Vector Embeddings for advanced search, retrieval, and contextual analysis.
+                    </div>
+                </li>
+                <li class="list-item">
+                    <span class="list-icon">⚙️</span>
+                    <div class="list-content">
+                        <strong style="color: #374151;">Data Pipelines:</strong> Designing and deploying scalable, robust data pipelines to handle the entire ML lifecycle—from data ingestion and processing to model deployment and monitoring.
+                    </div>
+                </li>
+            </ul>
+        </div>
+<!-- FULL STACK & CLOUD FOUNDATION -->
+        <div class="section-content">
+            <h2 class="text-xl font-semibold text-secondary mb-4">
+                <span style="font-size: 1.5rem; margin-right: 0.5rem;">🏗️</span> Foundational Experience (Full Stack & Cloud)
+            </h2>
+            <p style="color: #4B5563; margin-bottom: 1rem;">
+                My work relies on a strong foundation in scalable full-stack development and multi-cloud architecture. Previously, I architected and deployed <strong style="color: var(--primary-color);">Poli Cloud</strong>, a global policy collaboration platform. This experience provided deep expertise in:
+            </p>
+            
+<ul class="list-inside" style="color: var(--text-color); margin-top: 0; padding-left: 0; margin-left: 1.5rem;">
+                <li>
+                    <strong style="font-weight: 500;">Architecture & Scaling:</strong> Building and deploying containerized web applications across multi-cloud environments (OCI, now expanding to AWS).
+                </li>
+                <li>
+                    <strong style="font-weight: 500;">DevOps & CI/CD:</strong> Practical DevOps practices, utilizing Bash scripting for build automation, environment setup, and CI/CD orchestration.
+                </li>
+                <li>
+                    <strong style="font-weight: 500;">Tech Stack Mastery:</strong> React (frontend), JavaScript, Node.js, Docker, SQL/NoSQL, and extensive cloud resource configuration (VMs, block volumes, object storage, database instances).
+                </li>
+            </ul>
+            <p class="italic-note">
+                I apply a cloud-agnostic approach, ensuring infrastructure designed for OCI can be mirrored on AWS or other major providers. I am currently expanding my AWS proficiency, covering SDK integration, IAM policies, Lambda functions, and CI/CD pipelines.
+            </p>
+        </div>
+<!-- KEY SKILLS SUMMARY -->
+        <div class="section-content" style="border-top: 1px solid #E5E7EB; padding-top: 1.5rem; margin-bottom: 0;">
+            <h2 class="text-xl font-semibold text-secondary mb-4">
+                <span style="font-size: 1.5rem; margin-right: 0.5rem;">🛠️</span> Key Skills
+            </h2>
+            
+ <div class="skills-grid">
+                <div class="skill-box">
+                    <strong>👉 Machine Learning/AI:</strong>
+                    <span>NLP • LoRA Adapters • Transformer Models • Vector Embeddings • Python (Libraries) • Data Pipelines</span>
+                </div>
+                <div class="skill-box">
+                    <strong>👉 Full Stack:</strong>
+                    <span>JavaScript • React • Node.js • SQL/NoSQL</span>
+                </div>
+                <div class="skill-box full-width-skill">
+                    <strong>👉 Cloud & DevOps:</strong>
+                    <span>Docker • Kubernetes (Concepts) • AWS • Oracle Cloud (OCI) • Bash • CI/CD • Cloud Architecture</span>
+                </div>
+            </div>
+        </div>
 
-<h2>🏗️ Three-Layer Platform Architecture</h2>
-<p>The platform is designed as a clear three-layer structure:</p>
-<ol>
-  <li><strong>Front-End Layer:</strong> React application, hosted separately on its own VM and volume, managing all UI and state for profiles, forums, dashboards, and forms.</li>
-  <li><strong>Back-End Layer:</strong> Node.js / Express microservices handling business logic. API wrappers are used for security and internal porting.</li>
-  <li><strong>Infrastructure & Database Layer:</strong> Mounted on VMs and volumes. Includes open-source PostgreSQL databases, AI LLM storage, and Kafka notification systems. Internal subnets connect back-end services securely to databases.</li>
-</ol>
-
-<h2>📝 Biography & Product Reasoning</h2>
-
-<h3>1️⃣ Product & Platform Vision</h3>
-<ol>
-  <li>Governa Cloud is a <strong>policy collaboration platform</strong> combining:
-    <ul>
-      <li>Community discussions (Reddit-style)</li>
-      <li>Professional networking (LinkedIn-style)</li>
-    </ul>
-  </li>
-  <li>Supports millions of users with modular, scalable infrastructure.</li>
-  <li>Core platform features:
-    <ul>
-      <li>Forums with threaded posts, moderation, and tagging</li>
-      <li>User profiles with dynamic credentials, education, publications, and interests</li>
-      <li>Real-time & asynchronous chat</li>
-      <li>AI-powered insights & summarizations</li>
-      <li>Analytics dashboards monitoring activity</li>
-      <li>Event-driven notifications via Kafka</li>
-    </ul>
-  </li>
-  <li>Architecture follows <strong>separation of concerns</strong>, making services modular and maintainable.</li>
-</ol>
-
-<h3>2️⃣ Infrastructure Layer & Databases</h3>
-<ul>
-  <li><strong>Transactional Database:</strong> PostgreSQL (open-source, volume-mounted), storing core entities: users, profiles, posts, forums.</li>
-  <li><strong>Analytics Database:</strong> Aggregated metrics and logs for dashboards; separate service/controller/router layer.</li>
-  <li><strong>Message Database:</strong> Dedicated DB for chat messages; separate service/controller/router to decouple messaging.</li>
-  <li><strong>AI / LLM Storage:</strong> Granite AI open-source model, mounted on its own VM; queries transactional, analytics, and index databases.</li>
-  <li><strong>Index / Search Database:</strong> Optimized indices for search, AI summarization, and analytics queries.</li>
-  <li><strong>Kafka Notification Service:</strong> Event-driven architecture for asynchronous notifications, connected to all relevant databases.</li>
-</ul>
-
-<h3>3️⃣ Back-End Layer: Services, Controllers & Routers</h3>
-<p>Each database/service has a corresponding service/controller/router layer for modularity:</p>
-
-<ul>
-  <li><strong>Transactional DB:</strong>
-    <ul>
-      <li>Service: TransactionalService</li>
-      <li>Controller: TransactionalController</li>
-      <li>Router: TransactionalRouter</li>
-    </ul>
-  </li>
-  <li><strong>Analytics DB:</strong>
-    <ul>
-      <li>Service: AnalyticsService</li>
-      <li>Controller: AnalyticsController</li>
-      <li>Router: AnalyticsRouter</li>
-    </ul>
-  </li>
-  <li><strong>Message DB:</strong>
-    <ul>
-      <li>Service: MessageService</li>
-      <li>Controller: MessageController</li>
-      <li>Router: MessageRouter</li>
-    </ul>
-  </li>
-  <li><strong>AI / LLM:</strong>
-    <ul>
-      <li>Service: AIService</li>
-      <li>Controller: AIController</li>
-      <li>Router: AIRouter</li>
-    </ul>
-  </li>
-  <li><strong>Index/Search DB:</strong>
-    <ul>
-      <li>Service: SearchService</li>
-      <li>Controller: SearchController</li>
-      <li>Router: SearchRouter</li>
-    </ul>
-  </li>
-  <li><strong>Kafka Notifications:</strong>
-    <ul>
-      <li>Service: NotificationService</li>
-      <li>Controller: NotificationController</li>
-      <li>Router: NotificationRouter</li>
-    </ul>
-  </li>
-</ul>
-
-<h3>4️⃣ Front-End Layer & API Interaction</h3>
-<ul>
-  <li>React app hosted on a dedicated VM and volume.</li>
-  <li>Components are modular and self-contained (e.g., PostForm manages its own state).</li>
-  <li>Front-end communicates with back-end via REST APIs using secure internal porting and subnets.</li>
-  <li>Service wrappers ensure clean abstraction and allow API evolution without impacting UI.</li>
-</ul>
-
-<h3>5️⃣ Data Flow Examples</h3>
-
-<p><strong>Transactional Flow:</strong></p>
-<ol>
-  <li>User creates a post → front-end calls <code>POST /posts</code></li>
-  <li>TransactionalController validates input → TransactionalService inserts into DB</li>
-  <li>Event emitted → Kafka triggers notifications</li>
-  <li>AnalyticsService consumes event → updates metrics</li>
-</ol>
-
-<p><strong>Profile Update Flow:</strong></p>
-<ol>
-  <li>User updates profile → <code>PUT /profile/:id</code></li>
-  <li>ProfileController validates → ProfileService updates transactional DB</li>
-  <li>Optional propagation → Analytics DB / Index DB for dashboards and AI queries</li>
-</ol>
-
-<p><strong>AI Query Flow:</strong></p>
-<ol>
-  <li>Front-end requests summary → <code>GET /ai/summary?forumId=xyz</code></li>
-  <li>AIController fetches data from Index DB → LLM generates output</li>
-  <li>Response returned to front-end; optionally cached</li>
-</ol>
-
-<h3>6️⃣ Deployment & Scalability</h3>
-<ul>
-  <li>VM and volume isolation for independent scaling and fault tolerance</li>
-  <li>Open-source Postgres DB fully self-hosted (not managed)</li>
-  <li>Granite AI model deployed on dedicated VM for optimized memory usage</li>
-  <li>Load balancers route traffic to multiple front-end or service instances</li>
-  <li>Internal subnets secure communication between VMs and databases</li>
-</ul>
-
-<h3>7️⃣ Tech Stack Highlights</h3>
-<ul>
-  <li>Back-end: Node.js, Express, PostgreSQL, Kafka</li>
-  <li>Front-end: React, modular components, API wrappers</li>
-  <li>AI / NLP: Granite AI LLM, integrated with transactional/analytics/index DBs</li>
-  <li>Databases: Transactional, Analytics, Message, Index/Search</li>
-  <li>Deployment: Multi-VM, volumes, load balancers, containerized microservices, Oracle Cloud</li>
-</ul>
-
-<h3>8️⃣ Key Principles</h3>
-<ul>
-  <li>Separation of concerns: modular service design</li>
-  <li>Scalability: high concurrency and load balancing</li>
-  <li>Extensibility: add new services without downtime</li>
-  <li>Product-driven architecture: all technical decisions support platform functionality</li>
-</ul>
+  </div>
 
 </body>
 </html>
 
-
-<h2>🧩 Technical Stack Overview</h2>
-
-Below is a structured overview of the core languages, frameworks, and technologies I’ve used and know across each major system layer — from front-end UI through back-end orchestration, databases, and cloud infrastructure.
-
-<table>
-  <thead>
-    <tr>
-      <th>🏗️ Layer</th>
-      <th>🧠 Technologies / Languages</th>
-      <th>⚙️ Description & Purpose</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Front-End</b></td>
-      <td>React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, TailwindCSS, Bootstrap</td>
-      <td>Client-facing interface for Governa Cloud. Modular component structure with state management via Context API; API consumption via Axios; hosted on an independent VM and volume.</td>
-    </tr>
-    <tr>
-      <td><b>Back-End</b></td>
-      <td>Node.js, Express.js, RESTful APIs, WebSockets, Python (data utilities), JWT, Kafka</td>
-      <td>Handles routing, logic, authentication, and message streaming. Built with a service–controller–router pattern and microservice modules for Transactional, AI, Messaging, and Analytics services.</td>
-    </tr>
-    <tr>
-      <td><b>Database Layer</b></td>
-      <td>PostgreSQL (open-source), Redis, MongoDB (NoSQL), Firestore (NoSQL), Oracle MySQL (managed), SQLAlchemy (Python ORM)</td>
-      <td>Multi-DB structure: transactional SQL for data integrity, NoSQL for messaging and analytics caching, Redis for in-memory caching, and Firestore for scalable, schema-less operations.</td>
-    </tr>
-    <tr>
-      <td><b>AI / Data Processing</b></td>
-      <td>Granite AI (open-source LLM), LangChain, Python NLP libraries, RAG pipeline, Embeddings, TensorFlow (lightweight)</td>
-      <td>Integrated open-source LLMs for contextual understanding and summarization. Uses embedding databases for semantic indexing and conversational retrieval.</td>
-    </tr>
-    <tr>
-      <td><b>Cloud Infrastructure</b></td>
-      <td>Oracle Cloud (VMs & Volumes), OCI CLI, Nginx, Docker, Kubernetes (basics), CI/CD pipelines, GCP Firestore, AWS S3</td>
-      <td>Self-managed VM + volume hosting setup. Each service containerized and isolated for scalability. Internal subnets for secure inter-service communication and database access.</td>
-    </tr>
-    <tr>
-      <td><b>APIs & Integration</b></td>
-      <td>REST, WebSocket, GraphQL (conceptual), Stripe API, OpenAI API, OAuth2.0, Web3.js (ERC-20 / 721)</td>
-      <td>Unified data exchange layer for both user traffic and backend communication. Focus on modular endpoints and secure token-based session management.</td>
-    </tr>
-    <tr>
-      <td><b>Development & Collaboration</b></td>
-      <td>Git, GitHub, Jira, Confluence, Postman, VSCode, Agile / Scrum</td>
-      <td>Full-cycle development collaboration with version control, API testing, and agile sprint planning for product milestones.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3>📊 Summary by Category</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Tools / Languages</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Programming Languages</b></td>
-      <td>JavaScript (ES6+), Python, SQL, TypeScript</td>
-    </tr>
-    <tr>
-      <td><b>Frameworks</b></td>
-      <td>React, Node.js, Express.js, LangChain</td>
-    </tr>
-    <tr>
-      <td><b>Databases</b></td>
-      <td>PostgreSQL, Redis, MongoDB, Firestore</td>
-    </tr>
-    <tr>
-      <td><b>AI / ML Tools</b></td>
-      <td>Granite AI, OpenAI API, TensorFlow (lite), RAG, Embeddings</td>
-    </tr>
-    <tr>
-      <td><b>Cloud & Deployment</b></td>
-      <td>Oracle Cloud, Docker, Nginx, CI/CD, GCP, AWS (S3)</td>
-    </tr>
-    <tr>
-      <td><b>Versioning / Testing</b></td>
-      <td>Git, GitHub, Postman, Jest (conceptual)</td>
-    </tr>
-    <tr>
-      <td><b>Security & Auth</b></td>
-      <td>JWT, OAuth 2.0, HTTPS, API Key Management</td>
-    </tr>
-  </tbody>
-</table>
